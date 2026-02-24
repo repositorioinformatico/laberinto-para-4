@@ -1,0 +1,42 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+config.local.*
+
+# Credenciales y tokens
+.credentials
+.netrc
+auth.json
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Build / dist
+dist/
+build/
+
+# Caché
+.cache/
+.parcel-cache/

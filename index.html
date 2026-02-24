@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laberinto multijugador simultáneo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="hud">
+        <div class="hud__status" id="status">Esperando a que alguien alcance la meta…</div>
+        <ul class="hud__placements" id="placements"></ul>
+      </section>
+
+      <section class="board-wrapper">
+        <div class="player-label top-left" data-player="rosa">
+          <span class="dot" style="background:#ff4da6"></span>
+          <span class="name"><span class="player-name" data-player-label="0">Rosa</span> — WASD</span>
+        </div>
+        <div class="player-label top-right" data-player="azul">
+          <span class="dot" style="background:#4da6ff"></span>
+          <span class="name"><span class="player-name" data-player-label="1">Azul</span> — Flechas</span>
+        </div>
+        <div class="player-label bottom-left" data-player="verde">
+          <span class="dot" style="background:#4dff88"></span>
+          <span class="name"><span class="player-name" data-player-label="2">Verde</span> — IJKL</span>
+        </div>
+        <div class="player-label bottom-right" data-player="naranja">
+          <span class="dot" style="background:#ffb347"></span>
+          <span class="name"><span class="player-name" data-player-label="3">Naranja</span> — TFGH</span>
+        </div>
+        <canvas id="mazeCanvas" width="640" height="640" aria-label="Laberinto multijugador"></canvas>
+      </section>
+
+      <section class="controls">
+        <button id="restartBtn">Reiniciar carrera</button>
+        <button id="newMazeBtn">Nuevo laberinto</button>
+        <button id="editNamesBtn">Cambiar nombres</button>
+      </section>
+
+      <section class="leaderboard" id="leaderboard" hidden>
+        <header>
+          <h2>Leaderboard</h2>
+          <p>Historial acumulado (se guarda en este navegador).</p>
+        </header>
+        <ol id="leaderboardList"></ol>
+      </section>
+    </main>
+
+    <div class="modal" id="nameModal" hidden>
+      <form class="modal__panel" id="nameForm">
+        <h2>Nombre de los jugadores</h2>
+        <p>Personaliza los nombres para que el leaderboard guarde sus puntuaciones.</p>
+        <label>
+          Jugador Rosa
+          <input name="player-0" maxlength="24" placeholder="Rosa" required />
+        </label>
+        <label>
+          Jugador Azul
+          <input name="player-1" maxlength="24" placeholder="Azul" required />
+        </label>
+        <label>
+          Jugador Verde
+          <input name="player-2" maxlength="24" placeholder="Verde" required />
+        </label>
+        <label>
+          Jugador Naranja
+          <input name="player-3" maxlength="24" placeholder="Naranja" required />
+        </label>
+        <label class="modal__checkbox">
+          <input type="checkbox" name="allow-ghost" id="ghostModeToggle" />
+          <span>Atravesar jugadores (sin colisiones entre ellos)</span>
+        </label>
+        <div class="modal__actions">
+          <button type="submit">Guardar y jugar</button>
+        </div>
+      </form>
+    </div>
+
+    <p class="watermark">Laberinto para 4 para guardias</p>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
